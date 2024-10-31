@@ -1,14 +1,14 @@
 // user-login.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserLogin } from './userlogin.model';
+import { UserLogin } from '../models/login.model';
 
 @Component({
   selector: 'app-user-login',
   templateUrl: './userlogin.component.html',
 })
 export class UserLoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 

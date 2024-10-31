@@ -1,5 +1,5 @@
 // user.model.ts
-export interface user {
+export interface User {
     name: string;          // Campo obligatorio
     lastName: string;      // Campo obligatorio
     email: string;         // Campo obligatorio

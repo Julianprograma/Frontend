@@ -1,14 +1,14 @@
 // user.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from './models/user.model';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
 })
 export class UserComponent implements OnInit {
-  userForm: FormGroup;
+  userForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
@@ -19,9 +19,6 @@ export class UserComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      date: ['', Validators.required],
-      modified: ['', Validators.required],
-      modifiedBy: ['', Validators.required],
     });
   }
 
