@@ -1,36 +1,34 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 @Injectable({
-    providedIn: 'root',
-  })
-  export class AuthService {
-    private baseUrl = 'http://appsystemrewards.somee.com/api/AuthCompany';
-  
-    constructor(private http: HttpClient) {}
-  
-    login(credentials: CompanyLoginDto): Observable<AuthResult> {
-      return this.http.post<AuthResult>(${this.baseUrl}/login, credentials);
-    }
-  
-    register(userData: CompanyRegisterDto): Observable<AuthResult> {
-      return this.http.post<AuthResult>(${this.baseUrl}/register, userData);
-    }
-  
-    // Guardar el token en localStorage
-    saveToken(token: string): void {
-      localStorage.setItem('token', token);
-    }
-  
-    // Obtener el token
-    getToken(): string | null {
-      return localStorage.getItem('token');
-    }
-  
-    // Verificar si el usuario está autenticado
-    isAuthenticated(): boolean {
-      return this.getToken() !== null;
-    }
-  
-    // Cerrar sesión
-    logout(): void {
-      localStorage.removeItem('token');
-    }
+  providedIn: 'root'
+})
+export class AuthService {
+  constructor( private http : HttpClient){}
+  baseServerUrl = "https://localhost:44334/api/User/";
+  createUser(user : Array <string>){
+    return this.http.post(this.baseServerUrl + 'register',
+      {
+        Name : user[0],
+        LastName : user[1],
+        Email : user[2],
+        Password : user[3],
+        PhoneNumber : user[4],
+      },
+      {
+        responseType: 'text',
+      }
+    );
   }
+  loginUser(loginInfo : Array<string>) {
+    return this.http.post(this.baseServerUrl + 'login',
+      {
+        Email : loginInfo[0],
+        Password : loginInfo[1],
+      },
+      {
+        responseType:'text',
+      }
+    );
+  }
+}
