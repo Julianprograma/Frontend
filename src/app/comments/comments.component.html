@@ -1,0 +1,49 @@
+<div class="comments-container">
+  <!-- Panel de lista de comentarios -->
+  <div class="comments-list">
+    <input type="text" placeholder="Search" class="search-bar" [(ngModel)]="searchTerm">
+    <div 
+      *ngFor="let comment of comments | filter:searchTerm" 
+      class="comment-item"
+      (click)="selectComment(comment)">
+      <span class="username">{{ comment.username }}</span>
+      <div class="stars">{{ getStars(comment.rating) }}</div>
+      <div class="stars" *ngIf="currentUserRole === 'admin'">{{ getStars(comment.rating) }}</div>
+      <div class="stars" *ngIf="currentUserRole === 'client'">
+        <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+              (click)="updateRating(comment, star)">
+          {{ star <= comment.rating ? '★' : '☆' }}
+        </span>
+      </div>
+    </div>
+  </div>
+    </div>
+
+  <!-- Panel de detalles de comentarios -->
+  <div class="comment-detail" *ngIf="selectedComment">
+    <div class="comment-header">
+      <span class="username">{{ selectedComment.username }}</span>
+      <span class="date">Date: {{ selectedComment.date }}</span>
+      <div class="stars">{{ getStars(selectedComment.rating) }}</div>
+    </div>
+    <div class="comment-text">
+      <p>{{ selectedComment.comment }}</p>
+    </div>
+    <div class="response-box">
+      <input type="text" placeholder="Respuesta" [(ngModel)]="response">
+      <button (click)="sendResponse()">&#9658;</button>
+    </div>
+  </div>
+ <!-- Sección de respuesta para el administrador -->
+ <div class="response-box" *ngIf="currentUserRole === 'admin'">
+  <input type="text" placeholder="Respuesta" [(ngModel)]="response">
+  <button (click)="sendResponse()">&#9658;</button>
+</div>
+
+<!-- Sección de comentario y estrellas para el cliente -->
+<div *ngIf="currentUserRole === 'client'">
+  <div class="stars">
+  </div>
+  <input type="text" placeholder="Escribe un comentario" #newCommentInput>
+  <button (click)="submitComment(newCommentInput.value)">Comentar</button>
+</div>
