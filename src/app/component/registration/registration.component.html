@@ -1,86 +1,90 @@
-<p class="text-center fs-3" [ngClass] = "isAccountCreated? 'text-success pb-1' : 'text-danger pb-1'">
-{{displayMsg}}
-</p>
-<div class="mb-4 h2 text-success">
+  
+  <div class="mb-4 h2 text-success">
     Register
-</div>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-<div class="mb-3">
-    <input 
-    class="form-control bg-body-secondary"
-    placeholder="Name"
-    formControlName="name"
-    />
-    <div class="form-text text-danger" *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">
-        Name is required.
-    </div>
-    <div class="form-text text-danger" *ngIf="form.get('name')?.errors?.['minlength'] && form.get('name')?.touched">
-        Name is too short.
-    </div>
-    <div class="form-text text-danger" *ngIf="form.get('name')?.errors?.['pattern'] && form.get('name')?.touched">
-        The numbers are no aviable.
-    </div>
-    
-</div>
-<div class="mb-3">
-    <input class="form-control bg-body-secondary" 
-    placeholder="Last Name" formControlName="lastName">
-    <div class="form-text text-danger" *ngIf="form.get('lastName')?.errors?.['required'] && form.get('lastName')?.touched">
-        Last Name is required.
-    </div>
-    <div class="form-text text-danger" *ngIf="form.get('lastName')?.errors?.['minlength'] && form.get('lastName')?.touched">
-        Last Name is too short.
-    </div>
-    <div class="form-text text-danger" *ngIf="form.get('lastName')?.errors?.['pattern'] && form.get('lastName')?.touched">
-        The numbers are no aviable.
-    </div>
-</div>
-<div class="mb-3">
-    <input class="form-control bg-body-secondary" 
-    placeholder="Email" formControlName="email">
-    <div class="form-text text-danger" *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
-        Email is required.
-    </div>
-    <div class="form-text text-danger"
-    *ngIf="(form.get('email')?.errors?.['email'] && form.get('email')?.touched) ||
-           (form.get('email')?.errors?.['email'] && form.get('email')?.dirty)">
-    Please enter a valid email address.
-    </div>
-</div>
-<div class="mb-3">
-    <input type="text" class="form-control bg-body-secondary" placeholder="Phone Number" formControlName="phoneNumber"/>
-    <div class="form-text text-danger" *ngIf ="form.get('phoneNumber')?.errors?.['required'] && form.get('phoneNumber')?.touched">
-        Number is required
-    </div>
-    <div class="form-text text-danger" *ngIf="form.get('phoneNumber')?.errors?.['pattern'] && form.get('phoneNumber')?.touched">
-        Number is invalid
-    </div>
   </div>
-<div class="mb-3">
-    <input type="password" class="form-control bg-body-secondary" 
-    placeholder="Password" formControlName="password">
-    <div class="form-text text-danger"
-    *ngIf="(form.get('password')?.errors?.['required'] && form.get('password')?.touched) ||
-           (form.get('password')?.errors?.['required'] && form.get('password')?.dirty)">
-    Password is required.
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Nombre -->
+    <div class="mb-3">
+      <input class="form-control bg-body-secondary" placeholder="Name" formControlName="name">
+      <div class="form-text text-danger" *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">
+        Name is required.
+      </div>
+      <div class="form-text text-danger" *ngIf="form.get('name')?.errors?.['minlength'] && form.get('name')?.touched">
+        Name is too short.
+      </div>
+      <div class="form-text text-danger" *ngIf="form.get('name')?.errors?.['pattern'] && form.get('name')?.touched">
+        Numbers are not allowed.
+      </div>
     </div>
-    <div class="form-text text-danger"
-    *ngIf="(form.get('password')?.errors?.['minlength'] && form.get('password')?.touched) ||
-           (form.get('password')?.errors?.['maxlength'] && form.get('password')?.dirty)">
-    Password should be at least 6 and at the max 15 characters long.
+  
+    <!-- Apellido -->
+    <div class="mb-3">
+      <input class="form-control bg-body-secondary" placeholder="Last Name" formControlName="lastName">
+      <div class="form-text text-danger" *ngIf="form.get('lastName')?.errors?.['required'] && form.get('lastName')?.touched">
+        Last Name is required.
+      </div>
+      <div class="form-text text-danger" *ngIf="form.get('lastName')?.errors?.['minlength'] && form.get('lastName')?.touched">
+        Last Name is too short.
+      </div>
+      <div class="form-text text-danger" *ngIf="form.get('lastName')?.errors?.['pattern'] && form.get('lastName')?.touched">
+        Numbers are not allowed.
+      </div>
     </div>
-</div>
-<div class="mb-3">
-    <input type="password" class="form-control bg-body-secondary" 
-    placeholder="Confirm Password" formControlName="confirmpassword">
-    <div class="form-text text-danger" *ngIf="!repeatPass && (form.get('confirmpassword')?.touched || form.get('confirmpassword')?.dirty)">
-        The passwords are not the same.
+  
+    <!-- Email -->
+    <div class="mb-3">
+      <input class="form-control bg-body-secondary" placeholder="Email" formControlName="email">
+      <div class="form-text text-danger" *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
+        Email is required.
+      </div>
+      <div class="form-text text-danger"
+           *ngIf="(form.get('email')?.errors?.['email'] && form.get('email')?.touched) ||
+                  (form.get('email')?.errors?.['email'] && form.get('email')?.dirty)">
+        Please enter a valid email address.
+      </div>
     </div>
-</div>
-
-<div class="mb-4">
-    <button type="submit" [disabled]="form.invalid" class="btn btn-success w-100 rounded-3">
+  
+    <!-- Teléfono -->
+    <div class="mb-3">
+      <input type="text" class="form-control bg-body-secondary" placeholder="Phone Number" formControlName="phoneNumber"/>
+      <div class="form-text text-danger" *ngIf="form.get('phoneNumber')?.errors?.['required'] && form.get('phoneNumber')?.touched">
+        Number is required.
+      </div>
+      <div class="form-text text-danger" *ngIf="form.get('phoneNumber')?.errors?.['pattern'] && form.get('phoneNumber')?.touched">
+        Number is invalid.
+      </div>
+    </div>
+  
+    <!-- Contraseña -->
+    <div class="mb-3">
+      <input type="password" class="form-control bg-body-secondary" placeholder="Password" formControlName="password">
+      <div *ngIf="form.get('password')?.errors && form.get('password')?.touched">
+        <div class="form-text text-danger" *ngIf="form.get('password')?.errors?.['required']">
+          Please enter your password.
+        </div>
+        <div class="form-text text-danger" *ngIf="form.get('password')?.errors?.['minlength']">
+          At least 6 characters required.
+        </div>
+        <div class="form-text text-danger" *ngIf="form.get('password')?.errors?.['pattern']">
+          One or more special characters required.
+        </div>
+      </div>
+    </div>
+  
+    <!-- Confirmación de Contraseña -->
+    <div class="mb-3">
+      <input type="password" class="form-control bg-body-secondary" 
+             placeholder="Confirm Password" formControlName="confirmpassword">
+      <div class="form-text text-danger" *ngIf="!repeatPass && (form.get('confirmpassword')?.touched || form.get('confirmpassword')?.dirty)">
+        The passwords do not match.
+      </div>
+    </div>
+  
+    <!-- Botón de Registro -->
+    <div class="mb-4">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-success w-100 rounded-3">
         Register
-    </button>
-</div>
-</form>
+      </button>
+    </div>
+  </form>  

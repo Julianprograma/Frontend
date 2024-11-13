@@ -1,0 +1,188 @@
+/* Estilo General */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+
+/* Inventory Header */
+.inventory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.inventory-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.search-bar {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+  width: 200px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.add-btn,
+.delete-btn,
+.edit-btn {
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.add-btn:hover { background: #4CAF50; }
+.delete-btn:hover { background: #f44336; }
+.edit-btn:hover { background: #FFC107; }
+
+/* Tabla de Productos */
+.table-container {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+.low-stock { color: red; }
+.high-stock { color: green; }
+
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.page-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.page-btn:hover {
+  background: #555;
+}
+
+.page-btn.active {
+  background: #007bff;
+}
+/* Estilos para el diálogo */
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.add-product-form input,
+.delete-product-form input,
+.edit-product-form input {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  width: 100%;
+}
+
+.image-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Estilo personalizado para la notificación de eliminación */
+.delete-snackbar {
+  background-color: #f44336; /* Rojo */
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}

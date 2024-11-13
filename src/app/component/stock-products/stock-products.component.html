@@ -1,0 +1,57 @@
+<div class="dashboard">
+  <!-- Sidebar mantenido de dashboard -->
+  <div class="sidebar">
+    <div class="logo">Logo</div>
+    <ul>
+      <li><a routerLink="/dashboard"><span class="icon">🏠</span> Dashboard</a></li>
+      <li><a routerLink="/comments"><span class="icon">💬</span> Comments</a></li>
+      <li><a routerLink="/calendar"><span class="icon">📅</span> Calendar</a></li>
+      <li><a routerLink="/stock-products"><span class="icon">📦</span> Stock Products</a></li>
+      <li><a routerLink="/schedule"><span class="icon">📝</span> Agendar</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content para Stock Products -->
+  <div class="main-content">
+    <div class="inventory-header">
+      <h2>Inventory</h2>
+      <input type="text" placeholder="🔍 Search" class="search-bar" />
+      <div class="action-buttons">
+        <button class="add-btn" (click)="openAddProductDialog()">➕ Agregar</button>
+        <button class="delete-btn" (click)="openDeleteProductDialog()">➖ Borrar</button>
+        <button class="edit-btn" (click)="openEditProductDialog()">✏️ Modificar</button>
+      </div>
+    </div>    
+
+    <!-- Tabla de Productos -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Código</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+            <td [ngClass]="{'low-stock': product.quantity < 10, 'high-stock': product.quantity >= 10}">x{{ product.quantity }}</td>
+            <td>{{ product.code }}</td>
+            <td>{{ product.price | currency:'USD' }}</td>
+            <td><img src="path/to/image" alt="Imagen del producto" class="product-image" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+      <button class="page-btn">⏮</button>
+      <button class="page-btn" *ngFor="let page of pages" [class.active]="page === currentPage">{{ page }}</button>
+      <button class="page-btn">⏭</button>
+    </div>
+  </div> <!-- Cierre correcto de main-content -->
+</div> <!-- Cierre correcto de dashboard -->

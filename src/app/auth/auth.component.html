@@ -1,0 +1,14 @@
+<div class="form-container">
+    <div class="form-header">
+      <button (click)="selectTab('login')" [class.active]="activeTab === 'login'">Login</button>
+      <button (click)="selectTab('register')" [class.active]="activeTab === 'register'">Signup</button>
+    </div>
+  
+    <div *ngIf="activeTab === 'login'">
+      <app-login></app-login>
+    </div>
+    <div *ngIf="activeTab === 'register'">
+      <app-registration></app-registration>
+    </div>
+  </div>
+  

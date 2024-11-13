@@ -1,0 +1,159 @@
+/* Estilo General */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.add-task-btn {
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.add-task-btn:hover {
+  background: #555;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.calendar-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.calendar-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor del Calendario */
+.calendar-container {
+  background-color: #3e3e3e;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.today-btn {
+  background: none;
+  color: #ffffff;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.date-display {
+  color: #ffffff;
+  font-size: 1em;
+}
+
+/* Tabla de Calendario */
+.calendar-table {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.calendar-day {
+  background-color: #ffffff;
+  color: #333333;
+  width: 100px;
+  min-height: 300px;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.task {
+  background-color: #ddd;
+  color: #333;
+  width: 80%;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -9,18 +10,18 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegistrationComponent implements OnInit {
   form!: FormGroup;
-  repeatPass : boolean = true;
+  repeatPass : boolean = false;
+  isSubmitted : boolean = false;
 
-  displayMsg : string = '';
-  isAccountCreated : boolean = false;
-
-  constructor(private formBuilder: FormBuilder, private authService:AuthService ) {}
+  constructor(private formBuilder: FormBuilder, private authService:AuthService, private toastr:ToastrService ) {}
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z].*")]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z].*")]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
+      password: ['',[
+        Validators.required,Validators.minLength(6),Validators.pattern(/(?=.*[^a-zA-Z0-9])/)
+      ]],
       confirmpassword: ['', Validators.required],
       phoneNumber: ['', [Validators.required, Validators.pattern("[0-9]*"),Validators.minLength(10), Validators.maxLength(16)]]
     });
@@ -34,33 +35,31 @@ export class RegistrationComponent implements OnInit {
 
     this.repeatPass = password === confirmpassword; // Actualiza el estado
   }
-    onSubmit(): void {
-      if (this.form.valid) {
-        console.log('Formulario enviado', this.form.value);
-
-        this.authService.createUser([
-          this.form.value.name,
-          this.form.value.lastName,
-          this.form.value.email,
-          this.form.value.password,
-          this.form.value.phoneNumber,
-
-        ])
-        .subscribe(res => {
-          if (res == "Success"){
-            this.displayMsg = 'Account Created Succesfully!';
-            this.isAccountCreated = true;
-          } else if (res == 'Already Exits'){
-            this.displayMsg = 'Account Already Exits. Try another Email.';
-            this.isAccountCreated = false;
-          } else {
-            this.displayMsg = 'Something went wrong.';
-            this.isAccountCreated = false;
-          }
-        });
-      } else {
-        console.log('Formulario no válido');
-      }
+  onSubmit() {
+    this.isSubmitted = true;
+    if (this.form.valid) {
+      const userData = {
+        name: this.form.value.name,
+        lastName: this.form.value.lastName,
+        email: this.form.value.email,
+        password: this.form.value.password,
+        phoneNumber: this.form.value.phoneNumber,
+      };
+  
+      this.authService.createUser(userData).subscribe({
+        next: (res: any) => {
+          console.log('Registro exitoso:', res);
+          this.form.reset();
+          this.isSubmitted = false;
+          this.toastr.success('New user created!', 'Registration Successful');
+        },
+        error: err => {
+          console.error('Error en el registro:', err);
+          this.toastr.error('Registration failed', 'Error');
+        }
+      });
+      
     }
-
+  }
+  
 }
