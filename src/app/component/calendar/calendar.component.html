@@ -1,0 +1,98 @@
+<div class="header">
+  <div class="logo">Quack</div>
+  <div class="header-icons">
+    <div class="icon" (click)="toggleNotifications()">
+      🔔
+      <div *ngIf="showNotifications" class="floating-window">
+        <h3>Notifications</h3>
+        <button class="green-btn">Read all</button>
+        <button class="delete-btn">Delete</button>
+        <p>Turno #12 (Terminado)</p>
+      </div>
+    </div>
+    <div class="icon" (click)="toggleLanguage()">
+      🇨🇴
+      <div *ngIf="showLanguage" class="floating-window">
+        <h3>Language</h3>
+        <p>Español 🇨🇴</p>
+        <p>English 🇺🇸</p>
+      </div>
+    </div>
+    <div class="icon" (click)="toggleAccount()">
+      👤
+      <div *ngIf="showAccount" class="floating-window">
+        <p>My account</p>
+        <p>Subscription</p>
+        <p (click)="logout()">Log Out</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashboard">
+  <!-- Sidebar mantenido de dashboard -->
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="/dashboard"><span class="icon">🏠</span> Dashboard</a></li>
+      <li><a routerLink="/comments"><span class="icon">💬</span> Comments</a></li>
+      <li><a routerLink="/calendar"><span class="icon">📅</span> Calendar</a></li>
+      <li><a routerLink="/stock-products"><span class="icon">📦</span> Stock Products</a></li>
+      <li><a routerLink="/schedule"><span class="icon">📝</span> Schedule</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content para Calendar -->
+  <div class="main-content">
+    <div class="calendar-header">
+      <h2>Calendar</h2>
+      <button class="add-task-btn">➕ Add Task</button>
+    </div>
+
+    <div class="calendar-container">
+      <div class="calendar-controls">
+        <button class="today-btn">⬅ Today</button>
+        <span class="date-display">Date: 30/09/2024</span>
+      </div>
+
+      <!-- Tabla de Calendario -->
+      <div class="calendar-table">
+        <div class="calendar-day">
+          <div class="day-header">Today</div>
+          <div class="task">Task 1</div>
+          <div class="task">Task 2</div>
+          <div class="task">Task 3</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-header">Monday</div>
+          <div class="task">Task 1</div>
+          <div class="task">Task 2</div>
+          <div class="task">Task 3</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-header">Tuesday</div>
+          <div class="task">Task 1</div>
+          <div class="task">Task 2</div>
+          <div class="task">Task 3</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-header">Wednesday</div>
+          <div class="task">Task 1</div>
+          <div class="task">Task 2</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-header">Thursday</div>
+          <div class="task">Task 1</div>
+          <div class="task">Task 2</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-header">Friday</div>
+          <div class="task">Task 1</div>
+        </div>
+        <div class="calendar-day">
+          <div class="day-header">Saturday</div>
+          <div class="task">Task 1</div>
+          <div class="task">Task 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

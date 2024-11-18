@@ -1,0 +1,19 @@
+<div class="auth-container">
+  <div class="form-container">
+    <!-- Navegación entre Login y Signup -->
+    <div class="form-header">
+      <button (click)="selectTab('login')" [class.active]="activeTab === 'login'">
+        Login
+      </button>
+      <button (click)="selectTab('register')" [class.active]="activeTab === 'register'">
+        Signup
+      </button>
+    </div>
+
+    <!-- Mostrar componente dinámicamente según la pestaña seleccionada -->
+    <div class="form-content">
+      <app-login *ngIf="activeTab === 'login'"></app-login>
+      <app-registration *ngIf="activeTab === 'register'"></app-registration>
+    </div>
+  </div>
+</div>

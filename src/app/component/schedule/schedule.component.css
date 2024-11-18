@@ -1,0 +1,304 @@
+/* Header con Logo y Iconos */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+.header .logo {
+  margin-left: 30px;
+  font-size: 1.8em;
+}
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.header-icons .icon {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ventanas Flotantes */
+.floating-window {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #444;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Asegura que esté en la parte superior */
+}
+
+
+.floating-window h3 {
+  margin-top: 0;
+  color: #87CEEB;
+}
+
+.green-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Estilos Generales */
+.dashboard {
+  display: flex; /* Configuración de diseño flexible */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden; /* Evita que se desborde contenido */
+}
+
+/* Estilos de la Barra Lateral */
+.sidebar {
+  width: 250px; /* Ancho fijo del sidebar */
+  background: #333; /* Fondo oscuro */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.3s;
+  
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.sidebar ul li a .icon {
+  margin-right: 10px;
+}
+
+/* Botón de Salir */
+.account-settings {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.account-settings a {
+  margin-top: auto;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.5s;
+}
+.account-settings a:hover{
+  background-color: #ff5b5b;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+/* Schedule Container - Habilitar Scroll */
+.schedule-container {
+  flex:1;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #4b4b4b; /* Fondo del Schedule */
+  color: white;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  overflow-y: auto; /* Habilita el scroll vertical */
+}
+.schedule-container h2 {
+  text-align: center;
+}
+
+/* Ajuste para secciones */
+.section {
+  margin: auto;
+  text-align: center;
+  background-color: #444444;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
+/* Vista previa de imágenes */
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
+  max-height: 200px; /* Evita que la vista previa ocupe mucho espacio */
+  overflow: hidden;
+}
+
+/* Títulos de las Secciones */
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #cfcfcf;
+  margin-bottom: 10px;
+}
+
+/* Estilo de los campos de entrada */
+.input-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.input-field input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 45%;
+  font-size: 14px;
+}
+.info-section input{
+  margin: 5px;
+}
+
+/* Label para subir imágenes */
+.upload-label {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.upload-label:hover {
+  background-color: #45a049;
+}
+
+/* Ocultar input de archivo */
+.file-input {
+  display: none;
+}
+
+/* Contenedor de vista previa */
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Estilo de la imagen de vista previa */
+.preview-image {
+  max-width: 100%;
+  max-height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*Motivo*/
+.motivo-section .check{
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+/*Info Client*/
+.info-client .info-field{
+  margin: 5px;
+}
+.info-client .info-field span{
+  margin-right: 20px;
+}
+
+/* Botones */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.send-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.send-btn {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+.send-btn:hover {
+  background-color: #45a049; /* Verde más oscuro */
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: #f44336; /* Rojo */
+  border: 2px solid #f44336;
+}
+
+.cancel-btn:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Ajusta el ancho para pantallas pequeñas */
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .schedule-container {
+    padding: 15px;
+  }
+}

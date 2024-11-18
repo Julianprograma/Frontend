@@ -1,0 +1,123 @@
+/* Fondo general */
+.login-container {
+  background: linear-gradient(to right, #f054a0, #d66dd6); /* Fondo rosado/violeta */
+  height: 100vh; /* Altura completa de la pantalla */
+  display: flex; /* Flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  font-family: Arial, sans-serif; /* Tipografía general */
+  margin: 0;
+}
+
+/* Contenedor del formulario */
+.login-card {
+  background: white; /* Fondo blanco del formulario */
+  padding: 30px 40px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  width: 100%;
+  max-width: 400px; /* Ancho máximo del formulario */
+  text-align: center; /* Centrar texto */
+}
+
+/* Botones de navegación entre Login y Signup */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-buttons button {
+  flex: 1;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-buttons .active {
+  background: linear-gradient(to right, #f054a0, #d66dd6); /* Fondo rosado/violeta */
+  color: white; /* Texto blanco */
+}
+
+.nav-buttons button:not(.active) {
+  background: white; /* Fondo blanco para inactivos */
+  color: #f054a0; /* Texto rosado */
+  border: 2px solid #f054a0; /* Borde rosado */
+}
+
+.nav-buttons button:not(.active):hover {
+  background: #f054a0; /* Fondo rosado al pasar el mouse */
+  color: white; /* Texto blanco */
+}
+
+/* Título del formulario */
+h2 {
+  color: #f054a0; /* Color rosado */
+  margin-bottom: 20px;
+  font-size: 24px; /* Tamaño del título */
+  font-weight: bold; /* Negrita */
+}
+
+/* Campos de entrada */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 14px;
+}
+
+.input-group input:focus {
+  border-color: #f054a0; /* Resaltado rosado */
+  outline: none;
+  box-shadow: 0 0 5px rgba(240, 84, 160, 0.5); /* Sombra suave */
+}
+
+/* Mensajes de error */
+.error-message {
+  color: red; /* Color rojo para errores */
+  font-size: 12px; /* Tamaño pequeño */
+  text-align: left; /* Alinear texto a la izquierda */
+  margin-top: 5px;
+}
+
+/* Botón de Login */
+.btn-login {
+  background: linear-gradient(to right, #f054a0, #d66dd6); /* Fondo rosado/violeta */
+  color: white; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Animaciones */
+  width: 100%; /* Ancho completo */
+}
+
+.btn-login:hover {
+  background: #d66dd6; /* Tono violeta al pasar el mouse */
+  transform: scale(1.02); /* Pequeño aumento de tamaño */
+}
+
+.btn-login:disabled {
+  background: #ddd; /* Fondo gris para deshabilitado */
+  cursor: not-allowed; /* Cursor bloqueado */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 20px; /* Espaciado reducido */
+    max-width: 90%; /* Ajuste de ancho en pantallas pequeñas */
+  }
+}

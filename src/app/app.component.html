@@ -1,1 +1,5 @@
-<app-user></app-user>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- app.component.html -->
+<div [ngClass]="{ 'login-container': isLoginOrRegister, 'dashboard-container': !isLoginOrRegister }">
+  <router-outlet></router-outlet> <!-- Contenedor para las rutas -->
+</div>

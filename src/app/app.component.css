@@ -1,0 +1,19 @@
+/* Fondo para login/register */
+.login-container {
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Color para login */
+  min-height: 100vh; /* Asegúrate de que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Fondo para el dashboard */
+.dashboard-container {
+  background: linear-gradient(to right, #4facfe, #00f2fe); /* Color para dashboard */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+}

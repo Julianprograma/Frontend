@@ -1,0 +1,254 @@
+/* Header con Logo y Iconos */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+.header .logo {
+  margin-left: 30px;
+  font-size: 1.8em;
+}
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.header-icons .icon {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ventanas Flotantes */
+/* Ventanas Flotantes */
+.floating-window {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #444;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Asegura que esté en la parte superior */
+}
+
+
+.floating-window h3 {
+  margin-top: 0;
+  color: #87CEEB;
+}
+
+.green-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Estilos Generales */
+.dashboard {
+  display: flex; /* Configuración de diseño flexible */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden; /* Evita que se desborde contenido */
+}
+
+/* Estilos de la Barra Lateral */
+.sidebar {
+  width: 250px; /* Ancho fijo del sidebar */
+  background: #333; /* Fondo oscuro */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.3s;
+  
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.sidebar ul li a .icon {
+  margin-right: 10px;
+}
+
+/* Botón de Salir */
+.account-settings {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.account-settings a {
+  margin-top: auto;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.5s;
+}
+.account-settings a:hover{
+  background-color: #ff5b5b;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Área Principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+
+.main-content h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.add-task-btn {
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.add-task-btn:hover {
+  background: #555;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.calendar-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.calendar-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor del Calendario */
+.calendar-container {
+  background-color: #3e3e3e;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.today-btn {
+  background: none;
+  color: #ffffff;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.date-display {
+  color: #ffffff;
+  font-size: 1em;
+}
+
+/* Tabla de Calendario */
+.calendar-table {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.calendar-day {
+  background-color: #ffffff;
+  color: #333333;
+  width: 100px;
+  min-height: 300px;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.task {
+  background-color: #ddd;
+  color: #333;
+  width: 80%;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+}

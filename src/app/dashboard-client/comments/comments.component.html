@@ -1,0 +1,25 @@
+<div class="comments">
+  <h2>Comentarios</h2>
+  
+  <!-- Formulario para agregar un comentario -->
+  <form (ngSubmit)="submitComment()" class="comment-form">
+    <textarea
+      [(ngModel)]="commentText"
+      name="commentText"
+      placeholder="Escribe tu comentario aquí..."
+      required
+    ></textarea>
+    <button type="submit" [disabled]="!commentText.trim()">Enviar</button>
+  </form>
+
+  <!-- Lista de comentarios -->
+  <div class="comment-list">
+    <h3>Comentarios Recientes</h3>
+    <ul>
+      <li *ngFor="let comment of comments">
+        <p><strong>{{ comment.autor }}</strong>: {{ comment.comment }}</p>
+        <span>{{ comment.date | date: 'shortDate' }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

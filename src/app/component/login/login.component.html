@@ -1,0 +1,33 @@
+        <!-- Título del formulario -->
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmited()">
+        <div class="mb-3">
+            <input class="form-control bg-body-secondary" 
+        placeholder="Email" formControlName="email">
+        <div class="loginForm-text text-danger" *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
+            Email is required.
+        </div>
+        <div class="form-text text-danger"
+        *ngIf="(loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched) ||
+               (loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.dirty)">
+        Please enter a valid email address.
+        </div>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control bg-body-secondary" 
+        placeholder="Password" formControlName="password">
+        <div class="form-text text-danger"
+        *ngIf="(loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched) ||
+               (loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.dirty)">
+        Password is required.
+        </div>
+        <div class="form-text text-danger"
+        *ngIf="(loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.touched) ||
+               (loginForm.get('password')?.errors?.['maxlength'] && loginForm.get('password')?.dirty)">
+        Password should be at least 6 and at the max 15 characters long.
+        </div>
+        </div>
+        <!-- Botón de Login -->
+      <button type="submit" [disabled]="loginForm.invalid" class="btn-login">
+        Go!
+      </button>
+    </form>

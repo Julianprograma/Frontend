@@ -1,0 +1,303 @@
+/* Header con Logo y Iconos */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+.header .logo {
+  margin-left: 30px;
+  font-size: 1.8em;
+}
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.header-icons .icon {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ventanas Flotantes */
+/* Ventanas Flotantes */
+.floating-window {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #444;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Asegura que esté en la parte superior */
+}
+
+
+.floating-window h3 {
+  margin-top: 0;
+  color: #87CEEB;
+}
+
+.green-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Estilos Generales */
+.dashboard {
+  display: flex; /* Configuración de diseño flexible */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden; /* Evita que se desborde contenido */
+}
+
+/* Estilos de la Barra Lateral */
+.sidebar {
+  width: 250px; /* Ancho fijo del sidebar */
+  background: #333; /* Fondo oscuro */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.3s;
+  
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.sidebar ul li a .icon {
+  margin-right: 10px;
+}
+
+/* Botón de Salir */
+.account-settings {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.account-settings a {
+  margin-top: auto;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.5s;
+}
+.account-settings a:hover{
+  background-color: #ff5b5b;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Área Principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+
+.main-content h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+
+/* Contenedor Principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+  overflow-y: auto;
+}
+
+/* Contenedor de Comentarios */
+.comments-container {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 80px); /* Altura total menos espacio reservado para el header */
+  overflow-y: auto;
+}
+
+/* Lista de Comentarios */
+.no-comments {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: gray;
+}
+
+.comments-list {
+  width: 30%;
+  background-color: #3e3e3e;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-y: auto;
+  max-height: 100%; /* Permitir que el contenedor ocupe toda la altura disponible */
+}
+
+.comment-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.comment-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Detalles del Comentario */
+.comment-detail {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+/* Barra de Búsqueda */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+}
+
+/* Sección de Respuesta */
+.response-section {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.response-input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Ajuste de Espaciado y Tamaño de Letra */
+.comment-author {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.comment-rating span {
+  color: #f0c419;
+}
+
+.comment-detail .comment-author {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.comment-detail .comment-date {
+  float: right;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.comment-detail .comment-text {
+  font-size: 1.1em;
+  margin: 15px 0;
+}

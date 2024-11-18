@@ -1,0 +1,113 @@
+<div class="header">
+  <div class="logo">Quack</div>
+  <div class="header-icons">
+    <div class="icon" (click)="toggleNotifications()">
+      🔔
+      <div *ngIf="showNotifications" class="floating-window">
+        <h3>Notifications</h3>
+        <button class="green-btn">Read all</button>
+        <button class="delete-btn">Delete</button>
+        <p>Turno #12 (Terminado)</p>
+      </div>
+    </div>
+    <div class="icon" (click)="toggleLanguage()">
+      🇨🇴
+      <div *ngIf="showLanguage" class="floating-window">
+        <h3>Language</h3>
+        <p>Español 🇨🇴</p>
+        <p>English 🇺🇸</p>
+      </div>
+    </div>
+    <div class="icon" (click)="toggleAccount()">
+      👤
+      <div *ngIf="showAccount" class="floating-window">
+        <p>My account</p>
+        <p>Subscription</p>
+        <p (click)="logout()">Log Out</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashboard">
+  <!-- Sidebar mantenido de dashboard -->
+  <div class="sidebar">
+    <ul>
+      <li><a routerLink="/dashboard"><span class="icon">🏠</span> Dashboard</a></li>
+      <li><a routerLink="/comments"><span class="icon">💬</span> Comments</a></li>
+      <li><a routerLink="/calendar"><span class="icon">📅</span> Calendar</a></li>
+      <li><a routerLink="/stock-products"><span class="icon">📦</span> Stock Products</a></li>
+      <li><a routerLink="/schedule"><span class="icon">📝</span> Schedule</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content para Stock Products -->
+  <div class="main-content">
+    <div class="inventory-header">
+      <h2>Inventory</h2>
+      <input type="text" placeholder="🔍 Search" class="search-bar" />
+    
+      <div class="action-buttons">
+        <div class="action-button">
+          <button class="add-btn" (click)="toggleDropdown('add')">➕ Agregar</button>
+          <div *ngIf="dropdown === 'add'" class="dropdown-content">
+            <h3>Agregar Producto</h3>
+            <input type="text" placeholder="Nombre del producto" />
+            <input type="text" placeholder="Cantidad" />
+            <button class="confirm-btn" (click)="addProduct()">Confirmar</button>
+          </div>
+        </div>
+    
+        <div class="action-button">
+          <button class="delete-btn" (click)="toggleDropdown('delete')">➖ Borrar</button>
+          <div *ngIf="dropdown === 'delete'" class="dropdown-content">
+            <h3>Borrar Producto</h3>
+            <input type="text" placeholder="ID del producto" />
+            <button class="confirm-btn" (click)="deleteProduct()">Confirmar</button>
+          </div>
+        </div>
+    
+        <div class="action-button">
+          <button class="edit-btn" (click)="toggleDropdown('edit')">✏️ Modificar</button>
+          <div *ngIf="dropdown === 'edit'" class="dropdown-content">
+            <h3>Modificar Producto</h3>
+            <input type="text" placeholder="ID del producto" />
+            <input type="text" placeholder="Nuevo nombre" />
+            <input type="text" placeholder="Nueva cantidad" />
+            <button class="confirm-btn" (click)="editProduct()">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>    
+
+    <!-- Tabla de Productos -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Código</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+            <td [ngClass]="{'low-stock': product.quantity < 10, 'high-stock': product.quantity >= 10}">x{{ product.quantity }}</td>
+            <td>{{ product.code }}</td>
+            <td>{{ product.price | currency:'USD' }}</td>
+            <td><img src="path/to/image" alt="Imagen del producto" class="product-image" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+      <button class="page-btn">⏮</button>
+      <button class="page-btn" *ngFor="let page of pages" [class.active]="page === currentPage">{{ page }}</button>
+      <button class="page-btn">⏭</button>
+    </div>
+  </div>
+</div>

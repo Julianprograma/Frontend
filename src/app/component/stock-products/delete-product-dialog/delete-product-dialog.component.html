@@ -1,0 +1,32 @@
+<div class="delete-dialog-container">
+    <!-- Opciones de productos -->
+    <div class="product-options">
+      <label><input type="radio" name="product" /> Bujias</label>
+      <label><input type="radio" name="product" /> Tuercas 13"</label>
+    </div>
+  
+    <!-- Códigos de producto -->
+    <div class="product-codes">
+      <div>F32RT</div>
+      <div>NNSS12</div>
+    </div>
+  
+    <!-- Opciones de cantidad -->
+    <div class="quantity-options">
+      <div class="quantity-box">
+        <label>Cantidad <span>x100</span></label>
+        <input type="checkbox" /> Todas las unidades
+      </div>
+      <div class="quantity-box">
+        <label>Cantidad <span>x30</span></label>
+        <input type="checkbox" /> Todas las unidades
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botones ACEPTAR y CANCELAR -->
+  <div class="button-container">
+    <button (click)="closeDialog()">Aceptar</button>
+    <button (click)="closeDialog()">Cancelar</button>
+  </div>
+  
