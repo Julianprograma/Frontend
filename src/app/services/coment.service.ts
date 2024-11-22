@@ -17,7 +17,7 @@ export interface Comment {
   providedIn: 'root',
 })
 export class CommentService {
-  private apiUrl = 'https://webaplicacion.somee.com/api/ComentariosCliente';
+  private apiUrl = 'https://www.QuackTaller.somee.com/api/ComentariosCliente';
 
   constructor(private http: HttpClient) {}
 

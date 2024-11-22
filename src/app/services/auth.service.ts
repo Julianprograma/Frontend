@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  baseServerUrl = "https://webaplicacion.somee.com/api/User/";
+  baseServerUrl = "https://www.QuackTaller.somee.com/api/User/";
 
   private selectedRole: string = 'Cliente'; // Rol por defecto
 
