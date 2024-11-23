@@ -1,0 +1,7 @@
+<div *ngIf="userRole === 'admin'">
+    <app-dashboard></app-dashboard>
+  </div>
+  <div *ngIf="userRole === 'cliente'">
+    <app-dashboard-client></app-dashboard-client>
+  </div>
+  

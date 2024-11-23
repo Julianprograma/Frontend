@@ -7,7 +7,6 @@
   background-color: #333;
   color: white;
 }
-
 .header .logo {
   margin-left: 30px;
   font-size: 1.8em;
@@ -24,6 +23,7 @@
 }
 
 /* Ventanas Flotantes */
+/* Ventanas Flotantes */
 .floating-window {
   position: absolute;
   top: 30px;
@@ -34,7 +34,9 @@
   padding: 10px;
   width: 200px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Asegura que esté en la parte superior */
 }
+
 
 .floating-window h3 {
   margin-top: 0;
@@ -58,12 +60,95 @@
   cursor: pointer;
 }
 
-/* Estilo General */
+/* Estilos Generales */
 .dashboard {
+  display: flex; /* Configuración de diseño flexible */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden; /* Evita que se desborde contenido */
+}
+
+/* Estilos de la Barra Lateral */
+.sidebar {
+  width: 250px; /* Ancho fijo del sidebar */
+  background: #333; /* Fondo oscuro */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
   display: flex;
-  height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  align-items: center;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.3s;
+  
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.sidebar ul li a .icon {
+  margin-right: 10px;
+}
+
+/* Botón de Salir */
+.account-settings {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.account-settings a {
+  margin-top: auto;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.5s;
+}
+.account-settings a:hover{
+  background-color: #ff5b5b;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Área Principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+
+.main-content h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
 
 /* Sidebar */
@@ -76,6 +161,7 @@
   align-items: center;
   padding: 20px;
 }
+
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -102,34 +188,59 @@
   border-radius: 5px;
 }
 
-/* Main Content */
+/* Contenedor Principal */
 .main-content {
   flex: 1;
   padding: 20px;
   background-color: #4b4b4b;
   color: #ffffff;
+  overflow-y: auto;
 }
 
-.main-content h2 {
-  color: #ffffff;
-  font-size: 1.5em;
-  margin-bottom: 20px;
-}
-
-/* Comments Container */
+/* Contenedor de Comentarios */
 .comments-container {
   display: flex;
   gap: 20px;
+  height: calc(100vh - 80px); /* Altura total menos espacio reservado para el header */
+  overflow-y: auto;
 }
 
-/* Comments List */
+/* Lista de Comentarios */
+.no-comments {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: gray;
+}
+
 .comments-list {
   width: 30%;
   background-color: #3e3e3e;
   padding: 10px;
   border-radius: 8px;
+  overflow-y: auto;
+  max-height: 100%; /* Permitir que el contenedor ocupe toda la altura disponible */
 }
 
+.comment-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.comment-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Detalles del Comentario */
+.comment-detail {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+/* Barra de Búsqueda */
 .search-bar {
   width: 100%;
   padding: 10px;
@@ -139,33 +250,40 @@
   font-size: 1em;
 }
 
-.comment-item {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 8px;
+/* Sección de Respuesta */
+.response-section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  margin-top: 15px;
 }
 
+.response-input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Ajuste de Espaciado y Tamaño de Letra */
 .comment-author {
   font-weight: bold;
   font-size: 1em;
 }
 
 .comment-rating span {
-  color: #f0c419; /* Color de estrellas */
-}
-
-/* Comment Detail */
-.comment-detail {
-  flex: 1;
-  background-color: #d3d3d3;
-  padding: 20px;
-  border-radius: 8px;
-  color: #333;
+  color: #f0c419;
 }
 
 .comment-detail .comment-author {
@@ -182,29 +300,4 @@
 .comment-detail .comment-text {
   font-size: 1.1em;
   margin: 15px 0;
-}
-
-/* Response Section */
-.response-section {
-  display: flex;
-  align-items: center;
-  background-color: #e0e0e0;
-  border-radius: 8px;
-  padding: 5px;
-}
-
-.response-input {
-  flex: 1;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-.send-button {
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: #333;
-  cursor: pointer;
 }

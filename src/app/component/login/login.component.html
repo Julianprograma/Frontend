@@ -1,7 +1,4 @@
-<div class="p-5 w-100">
-    <div class="mb-4 h2 text-success">
-        Login
-    </div>
+        <!-- Título del formulario -->
     <form [formGroup]="loginForm" (ngSubmit)="loginSubmited()">
         <div class="mb-3">
             <input class="form-control bg-body-secondary" 
@@ -29,10 +26,8 @@
         Password should be at least 6 and at the max 15 characters long.
         </div>
         </div>
-        <div class="mb-4">
-            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success w-100 rounded-3">
-                Login
-            </button>
-        </div>
+        <!-- Botón de Login -->
+      <button type="submit" [disabled]="loginForm.invalid" class="btn-login">
+        Go!
+      </button>
     </form>
-</div>

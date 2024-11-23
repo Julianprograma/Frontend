@@ -1,7 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- app.component.html -->
-<div class="container">
-    <div class="row vh-100">
-      <router-outlet></router-outlet> <!-- Contenedor para las rutas -->
-    </div>
-  </div>
+<div [ngClass]="{ 'login-container': isLoginOrRegister, 'dashboard-container': !isLoginOrRegister }">
+  <router-outlet></router-outlet> <!-- Contenedor para las rutas -->
+</div>

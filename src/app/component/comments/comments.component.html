@@ -1,4 +1,3 @@
-
 <div class="header">
   <div class="logo">Quack</div>
   <div class="header-icons">
@@ -13,7 +12,7 @@
     </div>
     <div class="icon" (click)="toggleLanguage()">
       🇨🇴
-      <div *ngIf="toggleLanguage" class="floating-window">
+      <div *ngIf="showLanguage" class="floating-window">
         <h3>Language</h3>
         <p>Español 🇨🇴</p>
         <p>English 🇺🇸</p>
@@ -35,42 +34,53 @@
     <ul>
       <li><a routerLink="/dashboard"><span class="icon">🏠</span> Dashboard</a></li>
       <li><a routerLink="/comments"><span class="icon">💬</span> Comments</a></li>
-      <li><a routerLink="/calendar"><span class="icon">📅</span> Schedule</a></li>
-      <li><a routerLink="/products/stock"><span class="icon">📦</span> Stock Products</a></li>
-      <li><a routerLink="/schedule"><span class="icon">📝</span> Agendar</a></li>
+      <li><a routerLink="/calendar"><span class="icon">📅</span> Calendar</a></li>
+      <li><a routerLink="/stock-products"><span class="icon">📦</span> Stock Products</a></li>
+      <li><a routerLink="/schedule"><span class="icon">📝</span> Schedule</a></li>
     </ul>
   </div>
 
-  <div class="comments-container">
-    <!-- Lista de comentarios -->
-    <div class="comments-list">
-      <input type="text" placeholder="🔍 Search" class="search-bar" />
-      <div class="comment-item" *ngFor="let comment of comments" (click)="selectComment(comment)">
-        <p class="comment-author">{{ comment.author }}</p>
-        <div class="comment-rating">
-          <span *ngFor="let star of getArrayOfStars(comment.stars)">&#9733;</span>
+  <div class="main-content">
+    <h2>Comments</h2>
+    <div class="comments-container">
+      <!-- Lista de comentarios -->
+      <div class="comments-list">
+        <input type="text" placeholder="🔍 Search" class="search-bar" />
+      
+        <!-- Mensaje si no hay comentarios -->
+        <div *ngIf="comments.length === 0" class="no-comments">
+          <p>No comments available. Please check back later! 😊</p>
+        </div>
+      
+        <!-- Lista de comentarios -->
+        <div *ngFor="let comment of comments" class="comment-item" (click)="selectComment(comment)">
+          <p class="comment-author">{{ comment.author }}</p>
+          <div class="comment-rating">
+            <span *ngFor="let star of getArrayOfStars(comment.stars)">&#9733;</span>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Detalles de Comentario Seleccionado -->
+      <div *ngIf="selectedComment" class="comment-detail">
+        <p class="comment-author">{{ selectedComment.author }} 
+          <span class="comment-date">Date: {{ selectedComment.date }}</span>
+        </p>
+        <p class="comment-text">{{ selectedComment.text }}</p>
+
+        <!-- Respuestas a los comentarios -->
+        <div *ngFor="let response of selectedComment.responses">
+          <p class="response-text">{{ response.text }}</p>
+        </div>
+
+        <!-- Sección para responder -->
+        <div class="response-section">
+          <input type="text" [(ngModel)]="responseText" placeholder="😊 Respuesta" class="response-input" />
+          <button (click)="sendResponse()" class="send-button">➤</button>
         </div>
       </div>
     </div>
-  
-    <!-- Detalles de Comentario Seleccionado -->
-    <div *ngIf="selectedComment" class="comment-detail">
-      <p class="comment-author">{{ selectedComment.author }} 
-        <span class="comment-date">Date: {{ selectedComment.date }}</span>
-      </p>
-      <p class="comment-text">{{ selectedComment.text }}</p>
-  
-      <!-- Respuestas a los comentarios -->
-      <div *ngFor="let response of selectedComment.responses">
-        <p class="response-text">{{ response.text }}</p>
-      </div>
-  
-      <!-- Sección para responder -->
-      <div class="response-section">
-        <input type="text" [(ngModel)]="responseText" placeholder="😊 Respuesta" class="response-input" />
-        <button (click)="sendResponse()" class="send-button">➤</button>
-      </div>
-    </div>
-  </div>  
-
   </div>
+</div>
+

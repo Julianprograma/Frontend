@@ -1,0 +1,39 @@
+<div class="queue">
+    <!-- Barra superior -->
+    <div class="top-bar">
+      <h2>Cola de Servicios</h2>
+      <div class="controls">
+        <select>
+          <option>Últimas 24 horas</option>
+          <option>Últimos 7 días</option>
+          <option>Últimos 30 días</option>
+        </select>
+        <button>Exportar CSV</button>
+      </div>
+    </div>
+  
+    <!-- Tabla de servicios -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Servicio</th>
+          <th>Estado</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of queue; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.service }}</td>
+          <td [class.completed]="client.status === 'Completado'">
+            {{ client.status }}
+          </td>
+          <td>{{ client.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

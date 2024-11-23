@@ -1,0 +1,31 @@
+<div class="dashboard-client">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Client Dashboard</h2>
+      <nav>
+        <ul>
+          <li><a routerLink="/client-dashboard" routerLinkActive="active">Cola de Servicios</a></li>
+          <li><a routerLink="/client-dashboard/commentsclient" routerLinkActive="active">Comentarios</a></li>
+          <li><a href="#">Configuración</a></li>
+          <li><a href="#">Ayuda</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button (click)="logout()">Cerrar Sesión</button>
+      </div>
+    </div>
+  
+    <!-- Contenido Principal -->
+    <div class="main-content">
+      <!-- Barra Superior -->
+      <div class="top-bar">
+        <h1>Bienvenido al Dashboard</h1>
+      </div>
+  
+      <!-- Contenido dinámico cargado -->
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

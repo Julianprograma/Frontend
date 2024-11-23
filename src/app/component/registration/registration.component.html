@@ -1,8 +1,5 @@
   
-  <div class="mb-4 h2 text-success">
-    Register
-  </div>
-  
+
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <!-- Nombre -->
     <div class="mb-3">
@@ -80,11 +77,25 @@
         The passwords do not match.
       </div>
     </div>
+    <!-- Selector de Rol -->
+  <div class="mb-3">
+    <label for="role">Role</label>
+    <select id="role" class="form-control bg-body-secondary" formControlName="role">
+      <option value="Cliente">Cliente</option>
+      <option value="Admin">Admin</option>
+    </select>
+  </div>
   
-    <!-- Botón de Registro -->
-    <div class="mb-4">
-      <button type="submit" [disabled]="form.invalid" class="btn btn-success w-100 rounded-3">
-        Register
-      </button>
+    <!-- Política de Privacidad -->
+    <div class="mb-3">
+      <input type="checkbox" id="policyAccepted" formControlName="policyAccepted">
+      <label for="policyAccepted">
+        I accept the <a href="/assets/full-data-policy.html" target="_blank">Data Policy</a>.
+      </label>
     </div>
+
+    <!-- Botón de Registro -->
+    <button type="submit" [disabled]="form.invalid" class="btn-register">
+      Create!
+    </button>
   </form>  

@@ -6,10 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent {
-  activeTab: string = 'login';
+  activeTab: string = 'login'; // Tab inicial
 
   selectTab(tab: string): void {
-    this.activeTab = tab;
+    this.activeTab = tab; // Cambia la pestaña activa
   }
 }
-  

@@ -7,8 +7,8 @@
   background-color: #333;
   color: white;
 }
-
 .header .logo {
+  margin-left: 30px;
   font-size: 1.8em;
 }
 
@@ -33,7 +33,9 @@
   padding: 10px;
   width: 200px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Asegura que esté en la parte superior */
 }
+
 
 .floating-window h3 {
   margin-top: 0;
@@ -57,24 +59,21 @@
   cursor: pointer;
 }
 
-
 /* Estilos Generales */
 .dashboard {
-  display: flex;
-  height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  display: flex; /* Configuración de diseño flexible */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden; /* Evita que se desborde contenido */
 }
 
 /* Estilos de la Barra Lateral */
 .sidebar {
-  width: 250px;
-  background-color: #333;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 250px; /* Ancho fijo del sidebar */
+  background: #333; /* Fondo oscuro */
+  color: white;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .sidebar .logo {
@@ -85,7 +84,6 @@
 .sidebar ul {
   list-style: none;
   padding: 0;
-  width: 100%;
 }
 
 .sidebar ul li {
@@ -102,65 +100,79 @@
   align-items: center;
   width: 100%;
   padding: 10px;
+  transition: color 0.3s;
+  
 }
 
 .sidebar ul li a:hover {
   background-color: #444;
   padding-left: 15px;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .sidebar ul li a .icon {
   margin-right: 10px;
 }
 
+/* Botón de Salir */
 .account-settings {
-  margin-top: auto;
-  font-size: 0.9em;
-}
-
-/* Área Principal */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background-color: #4b4b4b;
-  color: #ffffff;
-}
-
-.main-content h2 {
-  color: #ffffff;
-  font-size: 1.5em;
-  margin-bottom: 15px;
-}
-/* Contenedor general */
-.schedule-container {
+  margin: 15px 0;
   display: flex;
+  align-items: center;
+}
+.account-settings a {
+  margin-top: auto;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.5s;
+}
+.account-settings a:hover{
+  background-color: #ff5b5b;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+/* Schedule Container - Habilitar Scroll */
+.schedule-container {
+  flex:1;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #333;
-  color: #ffffff;
+  background-color: #4b4b4b; /* Fondo del Schedule */
+  color: white;
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  overflow-y: auto; /* Habilita el scroll vertical */
 }
-
-/* Título principal */
 .schedule-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #e0e0e0;
+  text-align: center;
 }
 
-/* Estilos para las secciones */
+/* Ajuste para secciones */
 .section {
-  background-color: #4f4f4f;
+  margin: auto;
+  text-align: center;
+  background-color: #444444;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
   width: 100%;
   max-width: 800px;
+  box-sizing: border-box;
 }
 
-/* Títulos de las secciones */
+/* Vista previa de imágenes */
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
+  max-height: 200px; /* Evita que la vista previa ocupe mucho espacio */
+  overflow: hidden;
+}
+
+/* Títulos de las Secciones */
 .section-title {
   font-size: 18px;
   font-weight: bold;
@@ -177,107 +189,76 @@
 }
 
 .input-field input {
-  padding: 8px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
   width: 45%;
   font-size: 14px;
 }
-
-/* Estilo del área de Multimedia */
-.multimedia-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed #b0b0b0;
-  border-radius: 10px;
-  height: 150px;
-  color: #b0b0b0;
-  font-size: 24px;
+.info-section input{
+  margin: 5px;
 }
 
-/* Estilo del área de Motivo */
-.motivo-section {
-  display: flex;
-  align-items: center;
-}
-
-.motivo-section select {
-  padding: 8px;
-  border-radius: 5px;
-  font-size: 14px;
-  border: none;
-  margin-right: 10px;
-}
-
-.motivo-section .check-button {
-  padding: 8px 15px;
-  border-radius: 5px;
-  background-color: #007bff;
+/* Label para subir imágenes */
+.upload-label {
+  display: inline-block;
+  background-color: #4CAF50;
   color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.motivo-section .check-button:hover {
-  background-color: #0056b3;
-}
-
-/* Checkbox */
-.motivo-section .checkbox {
-  margin-left: 10px;
-}
-
-/* Sección de Información */
-.info-section {
-  display: flex;
-  justify-content: space-between;
-}
-
-.info-field {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-}
-
-.info-field input {
-  margin-left: 10px;
-  padding: 8px;
+  padding: 10px 20px;
   border-radius: 5px;
-  border: none;
-  font-size: 14px;
-}
-
-/* Tabla de Totales */
-.total-section {
-  margin-top: 20px;
+  cursor: pointer;
   font-size: 16px;
+  text-align: center;
 }
 
-.total-section table {
-  width: 100%;
-  margin-bottom: 10px;
+.upload-label:hover {
+  background-color: #45a049;
 }
 
-.total-section td {
-  padding: 5px 10px;
-  text-align: right;
+/* Ocultar input de archivo */
+.file-input {
+  display: none;
 }
 
-.total-section .total {
-  font-weight: bold;
-  font-size: 18px;
+/* Contenedor de vista previa */
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
 }
 
-/* Botones de enviar y cancelar */
+/* Estilo de la imagen de vista previa */
+.preview-image {
+  max-width: 100%;
+  max-height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*Motivo*/
+.motivo-section .check{
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+/*Info Client*/
+.info-client .info-field{
+  margin: 5px;
+}
+.info-client .info-field span{
+  margin-right: 20px;
+}
+
+/* Botones */
 .button-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.send-btn, .cancel-btn {
+.send-btn,
+.cancel-btn {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -305,4 +286,19 @@
 .cancel-btn:hover {
   background-color: #f44336;
   color: white;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Ajusta el ancho para pantallas pequeñas */
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .schedule-container {
+    padding: 15px;
+  }
 }

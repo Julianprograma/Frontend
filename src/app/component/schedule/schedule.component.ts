@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent {
-
+  
+  preview: string | null = null; // Almacena la URL de vista previa
   // Variables para mostrar/ocultar ventanas flotantes
   showNotifications = false;
   showLanguage = false;
@@ -20,6 +21,18 @@ export class ScheduleComponent {
     year: ''
   };
 
+  onFileSelected(event: any): void {
+    const file = event.target.files[0]; // Obtén el archivo seleccionado
+    if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.preview = reader.result as string; // Almacena la URL de la imagen para la vista previa
+      };
+      reader.readAsDataURL(file); // Lee el archivo como URL base64
+    } else {
+      alert('Solo se permiten imágenes en formato PNG o JPG');
+    }
+  }
   // Variables para la sección Motivo
   selectedMotivo = '';
   motivos = ['Reparación', 'Limpieza', 'Cambio de aceite', 'Alinear'];

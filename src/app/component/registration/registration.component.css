@@ -1,0 +1,53 @@
+/* Botón de Registro */
+.btn-register {
+    background: linear-gradient(to right, #f054a0, #d66dd6); /* Fondo rosado/violeta */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Animaciones */
+    width: 100%; /* Ancho completo */
+  }
+  
+  .btn-register:hover {
+    background: #d66dd6; /* Tono violeta al pasar el mouse */
+    transform: scale(1.02); /* Pequeño aumento de tamaño */
+  }
+  
+  .btn-register:disabled {
+    background: #ddd; /* Fondo gris para deshabilitado */
+    cursor: not-allowed; /* Cursor bloqueado */
+  }
+  .policy-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .policy-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .policy-container p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .policy-container a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .policy-container a:hover {
+    text-decoration: underline;
+  }
+  

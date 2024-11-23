@@ -22,10 +22,16 @@ import { CommentsComponent } from './component/comments/comments.component';
 import { StockProductsComponent } from './component/stock-products/stock-products.component';
 import { ScheduleComponent } from './component/schedule/schedule.component';
 
+import {DashboardContainerComponent} from './dashboard/dashboard.component';
+
 import { AddProductDialogComponent } from './component/stock-products/add-product-dialog/add-product-dialog.component';
 import { DeleteProductDialogComponent } from './component/stock-products/delete-product-dialog/delete-product-dialog.component';
 import { EditProductDialogComponent } from './component/stock-products/edit-product-dialog/edit-product-dialog.component';
 import { AuthComponent } from './auth/auth.component';
+import { DataPolicyComponent } from './data-policy/data-policy.component';
+import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
+import { ColaComponent } from './dashboard-client/cola/cola.component';
+import { CommentsClientComponent } from './dashboard-client/comments/comments.component'
 
 @NgModule({
   declarations: [
@@ -43,7 +49,12 @@ import { AuthComponent } from './auth/auth.component';
     AddProductDialogComponent,
     DeleteProductDialogComponent,
     EditProductDialogComponent,
-    AuthComponent
+    AuthComponent,
+    DataPolicyComponent,
+    DashboardClientComponent,
+    DashboardContainerComponent,
+    ColaComponent,
+    CommentsClientComponent
   ],
   imports: [
     BrowserModule,

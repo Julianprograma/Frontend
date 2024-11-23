@@ -1,0 +1,80 @@
+.dashboard-client {
+  display: flex;
+  height: 100vh; /* Ocupa toda la pantalla */
+  width: 100vw; /* Asegura que ocupe todo el ancho */
+  font-family: 'Arial', sans-serif;
+  overflow: hidden; /* Previene scroll innecesario */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #2C3E50; /* Fondo oscuro */
+  color: #ECF0F1; /* Texto claro */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+  .sidebar h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .sidebar nav ul li {
+    margin: 10px 0;
+  }
+  
+  .sidebar nav ul li a {
+    display: block;
+    color: #ECF0F1;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar nav ul li a.active,
+  .sidebar nav ul li a:hover {
+    background-color: #34495E; /* Efecto hover */
+  }
+  
+  /* Área principal de contenido */
+  .main-content {
+    flex: 1;
+    background-color: #F8F9FA; /* Fondo claro */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Barra superior dentro del contenido */
+  .top-bar {
+    background-color: #FFFFFF; /* Fondo blanco */
+    padding: 20px;
+    border-bottom: 1px solid #E0E0E0; /* Línea sutil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para la barra superior */
+  }
+  
+  .top-bar h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Contenido dinámico */
+  .content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto; /* Permite scroll si el contenido es demasiado grande */
+  }
+  

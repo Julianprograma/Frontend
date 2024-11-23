@@ -36,7 +36,7 @@
           <li><a routerLink="/comments"><span class="icon">💬</span> Comments</a></li>
           <li><a routerLink="/calendar"><span class="icon">📅</span> Calendar</a></li>
           <li><a routerLink="/stock-products"><span class="icon">📦</span> Stock Products</a></li>
-          <li><a routerLink="/schedule"><span class="icon">📝</span> Agendar</a></li>
+          <li><a routerLink="/schedule"><span class="icon">📝</span> Schedule</a></li>
         </ul>
             <div class="account-settings">
               <a (click)="logout()">Logout</a>
@@ -60,36 +60,55 @@
   </div>
 
   <!-- Sección Multimedia -->
-  <div class="section multimedia-section">
-    <div class="section-title">Multimedia</div>
-    <div>
-      <span>📷</span>
-    </div>
+  <!-- Sección Multimedia -->
+<div class="section multimedia-section">
+  <div class="section-title">Multimedia</div>
+  <div>
+    <label for="file-upload" class="upload-label">
+      📷 Haz clic para subir una imagen
+    </label>
+    <input 
+      id="file-upload" 
+      type="file" 
+      accept="image/png, image/jpeg" 
+      (change)="onFileSelected($event)" 
+      class="file-input" 
+    />
   </div>
+  <div class="preview-container" *ngIf="preview">
+    <img [src]="preview" alt="Vista previa de la imagen" class="preview-image">
+  </div>
+</div>
+
 
   <!-- Sección Motivo -->
   <div class="section motivo-section">
     <div class="section-title">Motivo</div>
-    <select>
+    <select class="check list">
       <option value="">Selecciona el motivo</option>
       <option value="reparacion">Reparación</option>
       <option value="limpieza">Limpieza</option>
       <option value="cambio_aceite">Cambio de aceite</option>
       <option value="alinear">Alinear</option>
     </select>
-    <button class="check-button">Comprobar</button>
-    <label class="checkbox"><input type="checkbox" /> Hay Stock</label>
+    <button class="check button">Comprobar</button>
+    <label class="check box"><input type="checkbox" /> Hay Stock</label>
   </div>
   
 <!-- Sección Información -->
-<div class="section info-section">
+<div class="section info-client">
   <div class="info-field">
     <span>👤 Cliente</span>
     <input type="text" placeholder="Nombre del cliente" />
   </div>
   <div class="info-field">
     <span>💳 Método de pago</span>
-    <input type="text" placeholder="Método de pago" />
+    <select>
+      <option value="">Selecciona el motivo</option>
+      <option value="reparacion">Efectivo</option>
+      <option value="limpieza">Transferencia</option>
+      <option value="cambio_aceite">Crédito</option>
+    </select>
   </div>
 </div>
 

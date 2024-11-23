@@ -1,20 +1,79 @@
-/* Estilo General */
-.dashboard {
+.header {
   display: flex;
-  height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+.header .logo {
+  margin-left: 30px;
+  font-size: 1.8em;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #333;
-  color: #ffffff;
+.header-icons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 20px;
+}
+
+.header-icons .icon {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ventanas Flotantes */
+/* Ventanas Flotantes */
+.floating-window {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #444;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Asegura que esté en la parte superior */
+}
+
+
+.floating-window h3 {
+  margin-top: 0;
+  color: #87CEEB;
+}
+
+.green-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Estilos Generales */
+.dashboard {
+  display: flex; /* Configuración de diseño flexible */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  overflow: hidden; /* Evita que se desborde contenido */
+}
+
+/* Estilos de la Barra Lateral */
+.sidebar {
+  width: 250px; /* Ancho fijo del sidebar */
+  background: #333; /* Fondo oscuro */
+  color: white;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .sidebar .logo {
@@ -25,11 +84,12 @@
 .sidebar ul {
   list-style: none;
   padding: 0;
-  width: 100%;
 }
 
 .sidebar ul li {
   margin: 15px 0;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar ul li a {
@@ -40,15 +100,43 @@
   align-items: center;
   width: 100%;
   padding: 10px;
+  transition: color 0.3s;
+  
 }
 
 .sidebar ul li a:hover {
   background-color: #444;
   padding-left: 15px;
   border-radius: 5px;
+  font-weight: bold;
 }
 
-/* Main Content */
+.sidebar ul li a .icon {
+  margin-right: 10px;
+}
+
+/* Botón de Salir */
+.account-settings {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.account-settings a {
+  margin-top: auto;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 10px;
+  transition: color 0.5s;
+}
+.account-settings a:hover{
+  background-color: #ff5b5b;
+  padding-left: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Área Principal */
 .main-content {
   flex: 1;
   padding: 20px;
@@ -56,6 +144,11 @@
   color: #ffffff;
 }
 
+.main-content h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
 /* Inventory Header */
 .inventory-header {
   display: flex;
@@ -77,26 +170,99 @@
   width: 200px;
 }
 
+/* Contenedor de los Botones */
 .action-buttons {
+  padding: auto;
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
-.add-btn,
-.delete-btn,
-.edit-btn {
-  background: #333;
-  color: #fff;
-  padding: 8px 12px;
+.action-button {
+  position: relative;
+}
+
+button {
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 0.9em;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.add-btn:hover { background: #4CAF50; }
-.delete-btn:hover { background: #f44336; }
-.edit-btn:hover { background: #FFC107; }
+.add-btn {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #45a049; /* Verde oscuro */
+}
+
+.delete-btn {
+  background-color: #E74C3C; /* Rojo */
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #C0392B; /* Rojo oscuro */
+}
+
+.edit-btn {
+  background-color: #3498DB; /* Azul */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2980B9; /* Azul oscuro */
+}
+
+/* Dropdown */
+.dropdown-content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 250px;
+}
+
+.dropdown-content h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.dropdown-content input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+.confirm-btn {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #45a049;
+}
+
 
 /* Tabla de Productos */
 .table-container {
@@ -163,15 +329,6 @@ tbody td {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-}
-
-.add-product-form input,
-.delete-product-form input,
-.edit-product-form input {
-  display: block;
-  margin: 10px 0;
-  padding: 5px;
-  width: 100%;
 }
 
 .image-upload {
